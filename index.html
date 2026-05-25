@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Judicial Intelligence & Victim Support System</title>
+  <meta name="description" content="AI-based Judicial Intelligence Database (EquiLaw) and Trauma-Informed Support/Referral System (JustiSafe) for legal professionals and survivors.">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- ========================================================= -->
+    <!-- 1. LANDING HUB VIEW                                       -->
+    <!-- ========================================================= -->
+    <section id="view-landing" class="app-view active">
+      <div class="landing-container">
+        
+        <header class="landing-header">
+          <div class="landing-badge">AI Prototype Model v1.0</div>
+          <h1 class="landing-title">Judicial Intelligence & Victim Support Portal</h1>
+          <p class="landing-subtitle">
+            An advanced, secure environment providing judicial analysis models for legal practitioners, 
+            paired with empathetic, confidential guidance networks for survivors of violence.
+          </p>
+        </header>
+
+        <div class="portal-grid">
+          
+          <!-- Card: Judicial Portal -->
+          <div id="card-go-judicial" class="portal-card card-judicial" id="portal-card-eq">
+            <div class="card-icon">⚖️</div>
+            <h3>EquiLaw AI</h3>
+            <p>
+              A judicial intelligence database designed for court systems, attorneys, and judges. 
+              Analyze testimonies, search precedents, and estimate federal sentencing guidelines.
+            </p>
+            <ul class="portal-features">
+              <li>Natural Language Case Analyzer</li>
+              <li>Precedent Case & Statute Explorer</li>
+              <li>Federal Sentencing Guideline Estimator</li>
+            </ul>
+            <div class="btn-portal">
+              <span>Access Legal Database</span>
+              <span>→</span>
+            </div>
+          </div>
+
+          <!-- Card: Victim Support Portal -->
+          <div id="card-go-victim" class="portal-card card-victim" id="portal-card-js">
+            <div class="card-icon">🛡️</div>
+            <h3>JustiSafe Support</h3>
+            <p>
+              A trauma-informed support hub assisting survivors of abuse, stalking, and assault. 
+              Find resources, plan safety measures, and document incidents confidentially.
+            </p>
+            <ul class="portal-features">
+              <li>Empathetic Trauma Chat Assistant</li>
+              <li>Shelter & Legal Aid Locator</li>
+              <li>Interactive Safety Planner</li>
+              <li>Incident Documentation Builder</li>
+            </ul>
+            <div class="btn-portal">
+              <span>Access Support Network</span>
+              <span>→</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="font-size: 0.8rem; color: var(--text-muted);">
+          🔒 All operations are executed locally in-browser. Zero personal information is logged or transmitted to external servers.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 2. EQUILAW (JUDICIAL INTELLIGENCE DATABASE) PORTAL        -->
+    <!-- ========================================================= -->
+    <section id="view-judicial" class="app-view">
+      <div class="portal-layout">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="portal-sidebar">
+          <div>
+            <div class="sidebar-header">
+              <span class="logo-icon">⚖️</span>
+              <span class="logo-text">EquiLaw AI</span>
+            </div>
+            <nav class="sidebar-nav">
+              <button class="nav-item active" data-tab="tab-jid-overview">
+                <span>📊</span> Overview Dashboard
+              </button>
+              <button class="nav-item" data-tab="tab-jid-analyzer">
+                <span>🤖</span> AI Case Analyzer
+              </button>
+              <button class="nav-item" data-tab="tab-jid-precedents">
+                <span>🔎</span> Precedents & Statutes
+              </button>
+              <button class="nav-item" data-tab="tab-jid-estimator">
+                <span>🧮</span> Sentencing Guidelines
+              </button>
+            </nav>
+          </div>
+          <div class="sidebar-footer">
+            <button class="btn-back-home">
+              <span>←</span> Return to Portal Hub
+            </button>
+          </div>
+        </aside>
+
+        <!-- Main Portal Contents -->
+        <main class="portal-main">
+          
+          <div class="portal-topbar">
+            <h2 class="topbar-title">Judicial Intelligence Environment</h2>
+            <div class="system-status">
+              <span class="status-dot"></span>
+              <span>Model: Local Legal-Bert Core</span>
+            </div>
+          </div>
+
+          <div class="portal-content-scroll">
+            
+            <!-- Tab: JID Overview -->
+            <div id="tab-jid-overview" class="portal-tab-content active">
+              <div class="panel">
+                <h3 class="panel-title">Federal Judicial Intelligence System</h3>
+                <p class="panel-desc">Legal decision support models for judges, prosecutors, and public defense counselors.</p>
+                
+                <div class="summary-grid" style="margin-top: 1.5rem;">
+                  <div class="summary-card">
+                    <div class="summary-card-icon">📚</div>
+                    <div class="summary-card-info">
+                      <h4>Precedents Indexed</h4>
+                      <p>25,480 Cases</p>
+                    </div>
+                  </div>
+                  <div class="summary-card">
+                    <div class="summary-card-icon">📜</div>
+                    <div class="summary-card-info">
+                      <h4>Mapped Statutes</h4>
+                      <p>Title 18 Crimes</p>
+                    </div>
+                  </div>
+                  <div class="summary-card">
+                    <div class="summary-card-icon">⚡</div>
+                    <div class="summary-card-info">
+                      <h4>API Status</h4>
+                      <p>Connected (Local)</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="margin-top: 2.5rem;">
+                  <h4 style="font-family: var(--font-family-heading); margin-bottom: 1rem; color: #fff;">Interactive Framework Overview</h4>
+                  <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+                    This prototype is equipped with localized natural language processing models. Select <strong>AI Case Analyzer</strong> to submit case summaries and observe how the system extracts charge categories, highlights statutory definitions, maps historical precedents, and assesses risk severity.
+                  </p>
+                  <p style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6;">
+                    Navigate to <strong>Sentencing Guidelines</strong> to calculate standard sentencing ranges using offense level grids.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: AI Case Analyzer -->
+            <div id="tab-jid-analyzer" class="portal-tab-content">
+              <div class="grid-split">
+                
+                <!-- Input Panel -->
+                <div class="panel">
+                  <div class="panel-header">
+                    <h3 class="panel-title">AI Case Testimony & Brief Analyzer</h3>
+                    <p class="panel-desc">Input a narrative statement or police incident log to extract statutory relevance.</p>
+                  </div>
+                  
+                  <form id="jid-analyzer-form">
+                    <div class="form-group">
+                      <label class="form-label" for="jid-case-text">Case Narrative / Testimony Brief</label>
+                      <textarea id="jid-case-text" class="form-control" placeholder="Describe the incident, including what happened, actions taken, and details about the parties involved..."></textarea>
+                    </div>
+                    
+                    <div style="margin-bottom: 1.5rem;">
+                      <span class="form-label">Select Sample Narrative Preset:</span>
+                      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                        <button type="button" class="btn-secondary jid-preset-btn" data-preset="preset1" style="font-size:0.8rem; padding: 0.4rem 0.8rem;">Domestic Assault</button>
+                        <button type="button" class="btn-secondary jid-preset-btn" data-preset="preset2" style="font-size:0.8rem; padding: 0.4rem 0.8rem;">Cyberstalking Threats</button>
+                        <button type="button" class="btn-secondary jid-preset-btn" data-preset="preset3" style="font-size:0.8rem; padding: 0.4rem 0.8rem;">Identity Fraud</button>
+                      </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                      <span>Analyze Legal Text</span> <span>⚡</span>
+                    </button>
+                  </form>
+                </div>
+
+                <!-- Outputs Panel -->
+                <div id="jid-analysis-results" class="ai-results-box">
+                  <div class="ai-results-placeholder">
+                    <div class="icon">⚖️</div>
+                    <h4>Awaiting Narrative Input</h4>
+                    <p>Enter legal text or choose a preset in the left panel and click 'Analyze Legal Text' to generate statutory mappings.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Tab: Precedents & Statutes Explorer -->
+            <div id="tab-jid-precedents" class="portal-tab-content">
+              <div class="panel">
+                <div class="panel-header">
+                  <h3 class="panel-title">Legal Precedents & Statutes Explorer</h3>
+                  <p class="panel-desc">Query landmark federal cases and Title 18 United States Code references.</p>
+                </div>
+
+                <div class="search-bar-wrapper">
+                  <span class="search-icon">🔍</span>
+                  <input type="text" id="jid-search-input" class="form-control search-input" placeholder="Search by case title, citation, statute, or legal keyword (e.g., 'mens rea', 'first amendment')...">
+                </div>
+
+                <div class="search-filters">
+                  <label class="form-label" style="display:inline-block; margin-right:1rem; align-self:center; margin-bottom:0;">Filter Category:</label>
+                  <select id="jid-category-filter" class="form-control" style="width: auto; display: inline-block;">
+                    <option value="">All Categories</option>
+                    <option value="Domestic Violence">Domestic Violence</option>
+                    <option value="Cyberstalking">Cyberstalking</option>
+                    <option value="Sexual Assault">Sexual Assault</option>
+                    <option value="Fraud & Identity Theft">Fraud & Identity Theft</option>
+                  </select>
+                </div>
+
+                <div id="jid-precedents-list" class="results-list">
+                  <!-- JS Injection -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: Sentencing guidelines -->
+            <div id="tab-jid-estimator" class="portal-tab-content">
+              <div class="grid-split">
+                
+                <!-- Inputs -->
+                <div class="panel">
+                  <div class="panel-header">
+                    <h3 class="panel-title">Federal Sentencing Guideline Estimator</h3>
+                    <p class="panel-desc">Adjust sliders to calculate custody ranges under the US Sentencing Guidelines (USSG).</p>
+                  </div>
+
+                  <div class="form-group">
+                    <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem;">
+                      <label class="form-label" for="jid-offense-level">Offense Level (Base + Adjustments)</label>
+                      <strong id="jid-offense-level-val" style="color:var(--theme-primary);">1</strong>
+                    </div>
+                    <input type="range" id="jid-offense-level" class="form-control" min="1" max="43" value="15" style="padding: 0;">
+                    <span style="font-size:0.75rem; color:var(--text-muted);">USSG Levels range from 1 (minor infractions) to 43 (life imprisonment offenses).</span>
+                  </div>
+
+                  <div class="form-group" style="margin-top: 2rem;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom: 0.5rem;">
+                      <label class="form-label" for="jid-history-points">Criminal History Points</label>
+                      <strong id="jid-history-points-val" style="color:var(--theme-primary);">0</strong>
+                    </div>
+                    <input type="range" id="jid-history-points" class="form-control" min="0" max="18" value="0" style="padding: 0;">
+                    <span style="font-size:0.75rem; color:var(--text-muted);">Criminal history points map into Categories I (0-1 points) through VI (13+ points).</span>
+                  </div>
+                </div>
+
+                <!-- Display Range -->
+                <div class="panel" style="background: rgba(79, 70, 229, 0.02); border-color: rgba(79, 70, 229, 0.2);">
+                  <div class="guideline-matrix">
+                    <div class="guideline-display">
+                      <div class="guideline-value" id="jid-guideline-months">0 - 6 Months</div>
+                      <div class="guideline-label">Custodial Sentencing Range</div>
+                    </div>
+
+                    <div style="display:flex; flex-direction:column; gap:0.75rem; border-top:1px solid var(--border-color); padding-top:1.25rem;">
+                      <div style="display:flex; justify-content:space-between; font-size:0.95rem;">
+                        <span style="color:var(--text-secondary);">Sentencing Zone:</span>
+                        <strong id="jid-guideline-zone" style="color:#fff;">Zone A</strong>
+                      </div>
+                      <div style="display:flex; justify-content:space-between; font-size:0.95rem;">
+                        <span style="color:var(--text-secondary);">History Classification:</span>
+                        <strong id="jid-guideline-category" style="color:#fff;">Category I</strong>
+                      </div>
+                      <div style="display:flex; justify-content:space-between; font-size:0.95rem;">
+                        <span style="color:var(--text-secondary);">Probation Option:</span>
+                        <strong id="jid-guideline-probation" style="color:#fff;">YES</strong>
+                      </div>
+                    </div>
+
+                    <div style="font-size:0.75rem; color:var(--text-muted); line-height:1.4; border-top:1px dashed var(--border-color); padding-top:1rem;">
+                      ⚠️ Guideline ranges provided are advisory estimations only. Final judicial determinations rely upon federal court trials and pre-sentencing reports.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </main>
+
+      </div>
+    </section>
+
+    <!-- ========================================================= -->
+    <!-- 3. JUSTISAFE (VICTIM REFERRAL & SUPPORT) PORTAL           -->
+    <!-- ========================================================= -->
+    <section id="view-victim" class="app-view">
+      <div class="portal-layout">
+        
+        <!-- Sidebar Navigation -->
+        <aside class="portal-sidebar">
+          <div>
+            <div class="sidebar-header">
+              <span class="logo-icon">🛡️</span>
+              <span class="logo-text">JustiSafe</span>
+            </div>
+            <nav class="sidebar-nav">
+              <button class="nav-item active" data-tab="tab-vsrs-welcome">
+                <span>🤍</span> Welcome Guide
+              </button>
+              <button class="nav-item" data-tab="tab-vsrs-chat">
+                <span>💬</span> Empathetic AI Chat
+              </button>
+              <button class="nav-item" data-tab="tab-vsrs-resources">
+                <span>📍</span> Resource Directory
+              </button>
+              <button class="nav-item" data-tab="tab-vsrs-safety">
+                <span>📝</span> Safety Planner
+              </button>
+              <button class="nav-item" data-tab="tab-vsrs-document">
+                <span>📁</span> Document Builder
+              </button>
+            </nav>
+          </div>
+          <div class="sidebar-footer">
+            <button class="btn-back-home">
+              <span>←</span> Return to Portal Hub
+            </button>
+          </div>
+        </aside>
+
+        <!-- Main Portal Contents -->
+        <main class="portal-main">
+          
+          <div class="portal-topbar">
+            <h2 class="topbar-title">Survivor Support Portal</h2>
+            <div class="system-status" style="border-color: rgba(13, 148, 136, 0.2);">
+              <span class="status-dot" style="background:#0d9488; box-shadow:0 0 8px #0d9488;"></span>
+              <span>Confidential Secure Client</span>
+            </div>
+          </div>
+
+          <div class="portal-content-scroll">
+            
+            <!-- Tab: VSRS Welcome -->
+            <div id="tab-vsrs-welcome" class="portal-tab-content active">
+              <div class="panel" style="border-color: rgba(13, 148, 136, 0.2);">
+                <h3 class="panel-title">Welcome to JustiSafe</h3>
+                <p class="panel-desc">A secure, compassionate platform designed to protect your identity and support your choices.</p>
+                
+                <div style="margin-top: 1.5rem; background: rgba(13, 148, 136, 0.05); border: 1px solid rgba(13, 148, 136, 0.2); padding: 1.5rem; border-radius: 12px;">
+                  <h4 style="color:#5dd5c9; margin-bottom: 0.5rem;">🚨 Immediate Physical Danger?</h4>
+                  <p style="color:var(--text-primary); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+                    If an abuser is nearby or you are in immediate danger of injury, call <strong>911</strong> immediately. 
+                  </p>
+                  <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5;">
+                    If you need to leave this page quickly because someone enters the room, click the red <strong>Emergency Quick Exit</strong> button in the bottom right corner, or press the <strong>Escape (ESC)</strong> key on your keyboard. It will immediately redirect your browser to Google and clear any inputs.
+                  </p>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                  <h4 style="color:#fff; margin-bottom: 0.75rem;">Your Support Options</h4>
+                  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem;">
+                    <div style="background:rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: 8px;">
+                      <strong style="color:#fff; display:block; margin-bottom:0.25rem;">💬 Confidential AI Chat</strong>
+                      <p style="font-size:0.85rem;">Discuss your concerns and explore safety solutions with a compassionate, trauma-informed chatbot.</p>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: 8px;">
+                      <strong style="color:#fff; display:block; margin-bottom:0.25rem;">📍 Support Directory</strong>
+                      <p style="font-size:0.85rem;">Find contact details for emergency shelters, counseling services, and free legal aid societies.</p>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: 8px;">
+                      <strong style="color:#fff; display:block; margin-bottom:0.25rem;">📝 Interactive Planner</strong>
+                      <p style="font-size:0.85rem;">Answer standard safety questions to generate a customized, actionable emergency checklist.</p>
+                    </div>
+                    <div style="background:rgba(255,255,255,0.02); border: 1px solid var(--border-color); padding: 1.25rem; border-radius: 8px;">
+                      <strong style="color:#fff; display:block; margin-bottom:0.25rem;">📁 Incident Builder</strong>
+                      <p style="font-size:0.85rem;">Securely construct an incident timeline log for documentation. Export locally to text or print.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: VSRS Chatbot -->
+            <div id="tab-vsrs-chat" class="portal-tab-content">
+              <div class="panel" style="border-color: rgba(13, 148, 136, 0.2);">
+                <div class="panel-header">
+                  <h3 class="panel-title">Empathetic Support Assistant</h3>
+                  <p class="panel-desc">A confidential chatbot trained in survivor advocacy guidelines to support your next steps.</p>
+                </div>
+
+                <div class="chat-container">
+                  <div id="vsrs-chat-messages" class="chat-messages">
+                    <!-- Chat bubbles -->
+                  </div>
+
+                  <div class="chat-quick-replies">
+                    <button class="btn-quick-reply">I am scared for my safety</button>
+                    <button class="btn-quick-reply">I need to find a shelter tonight</button>
+                    <button class="btn-quick-reply">How do I get a restraining order?</button>
+                    <button class="btn-quick-reply">Someone is harassing me online</button>
+                    <button class="btn-quick-reply">I just need someone to talk to</button>
+                  </div>
+
+                  <form id="vsrs-chat-form" class="chat-input-area">
+                    <input type="text" id="vsrs-chat-input" class="chat-input" placeholder="Type a message, or select a quick question above..." autocomplete="off">
+                    <button type="submit" class="btn-primary" style="padding: 0 1.5rem;">Send</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: VSRS Resource Directory -->
+            <div id="tab-vsrs-resources" class="portal-tab-content">
+              <div class="panel">
+                <div class="panel-header">
+                  <h3 class="panel-title">Crisis Resources & Referral Directory</h3>
+                  <p class="panel-desc">Locate free, confidential services for housing, counseling, legal defense, and medical care.</p>
+                </div>
+
+                <div class="grid-split" style="grid-template-columns: 1fr; margin-bottom: 2rem;">
+                  <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+                    <div style="flex:1; min-width:280px; position:relative;">
+                      <input type="text" id="vsrs-resource-search" class="form-control" placeholder="Search organizations, help lines, keywords (e.g. 'Youth', 'National')..." style="padding-left:1rem;">
+                    </div>
+                    <div>
+                      <select id="vsrs-resource-category" class="form-control" style="width: auto;">
+                        <option value="">All Categories</option>
+                        <option value="Crisis Hotlines">Crisis Hotlines</option>
+                        <option value="Emergency Shelters & Housing">Emergency Shelters & Housing</option>
+                        <option value="Legal Aid & Advocacy">Legal Aid & Advocacy</option>
+                        <option value="Counseling & Mental Health Support">Counseling & Mental Health Support</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="vsrs-resources-list" style="display:grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+                  <!-- Dynamic Resource Cards -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Tab: VSRS Safety Planner -->
+            <div id="tab-vsrs-safety" class="portal-tab-content">
+              <div class="grid-split">
+                
+                <!-- Questionnaire -->
+                <div class="panel">
+                  <div class="panel-header">
+                    <h3 class="panel-title">Safety Planning Assessment</h3>
+                    <p class="panel-desc">Select factors corresponding to your situation to construct an emergency action plan.</p>
+                  </div>
+
+                  <form id="vsrs-safety-form">
+                    <div style="display:flex; flex-direction:column; gap:1.25rem;">
+                      <label style="display:flex; align-items:center; gap:1rem; cursor:pointer;">
+                        <input type="checkbox" id="choice-children" style="width:20px; height:20px; accent-color:#0d9488;">
+                        <div style="flex:1;">
+                          <strong style="display:block; color:#fff;">I have children living in the household</strong>
+                          <span style="font-size:0.85rem; color:var(--text-secondary);">Includes parental safety checklists and child-specific escape strategies.</span>
+                        </div>
+                      </label>
+
+                      <label style="display:flex; align-items:center; gap:1rem; cursor:pointer;">
+                        <input type="checkbox" id="choice-home" style="width:20px; height:20px; accent-color:#0d9488;">
+                        <div style="flex:1;">
+                          <strong style="display:block; color:#fff;">I share a residence with the hostile individual</strong>
+                          <span style="font-size:0.85rem; color:var(--text-secondary);">Adds physical escape steps, lock security measures, and home boundaries.</span>
+                        </div>
+                      </label>
+
+                      <label style="display:flex; align-items:center; gap:1rem; cursor:pointer;">
+                        <input type="checkbox" id="choice-leave" style="width:20px; height:20px; accent-color:#0d9488;">
+                        <div style="flex:1;">
+                          <strong style="display:block; color:#fff;">I am preparing to leave the abuser/residence</strong>
+                          <span style="font-size:0.85rem; color:var(--text-secondary);">Generates Go-Bag packing checklists, safe timing tips, and document collection guides.</span>
+                        </div>
+                      </label>
+
+                      <label style="display:flex; align-items:center; gap:1rem; cursor:pointer;">
+                        <input type="checkbox" id="choice-digital" style="width:20px; height:20px; accent-color:#0d9488;">
+                        <div style="flex:1;">
+                          <strong style="display:block; color:#fff;">I suspect online tracking or device spyware monitoring</strong>
+                          <span style="font-size:0.85rem; color:var(--text-secondary);">Adds cybersecurity precautions, password sweeps, and tracking diagnostics.</span>
+                        </div>
+                      </label>
+
+                      <label style="display:flex; align-items:center; gap:1rem; cursor:pointer;">
+                        <input type="checkbox" id="choice-protection" style="width:20px; height:20px; accent-color:#0d9488;">
+                        <div style="flex:1;">
+                          <strong style="display:block; color:#fff;">I hold (or plan to request) a restraining/protective order</strong>
+                          <span style="font-size:0.85rem; color:var(--text-secondary);">Guides on maintaining copies, alerting workplaces, and documenting violations.</span>
+                        </div>
+                      </label>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Custom Checklist Results -->
+                <div class="panel" style="background: rgba(13, 148, 136, 0.02); border-color: rgba(13, 148, 136, 0.2);">
+                  <div class="panel-header" style="border-bottom-color: rgba(13, 148, 136, 0.1);">
+                    <h3 class="panel-title">Actionable Safety Guide</h3>
+                  </div>
+                  <div id="vsrs-checklist-results">
+                    <!-- Checkboxes Injected -->
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Tab: VSRS Document Builder -->
+            <div id="tab-vsrs-document" class="portal-tab-content">
+              <div class="grid-split">
+                
+                <!-- Inputs Form -->
+                <div class="panel">
+                  <div class="panel-header">
+                    <h3 class="panel-title">Incident Documentation Builder</h3>
+                    <p class="panel-desc">Securely compile a log of events. The builder organizes details into a clear format for legal advisors or law enforcement.</p>
+                  </div>
+
+                  <form id="vsrs-doc-form">
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                      <div class="form-group">
+                        <label class="form-label" for="vsrs-report-name">Survivor Name (Or 'Anonymous')</label>
+                        <input type="text" id="vsrs-report-name" class="form-control" placeholder="Optional">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="vsrs-report-contact">Safe Contact (Email/Phone)</label>
+                        <input type="text" id="vsrs-report-contact" class="form-control" placeholder="Optional">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+                        <input type="checkbox" id="vsrs-report-safe" checked style="width:16px; height:16px; accent-color:#0d9488;">
+                        <span style="font-size:0.85rem; color:#cbd5e1;">It is safe to contact me at the above address/phone.</span>
+                      </label>
+                    </div>
+
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-top:1rem;">
+                      <div class="form-group">
+                        <label class="form-label" for="vsrs-report-date">Date & Time of Incident</label>
+                        <input type="datetime-local" id="vsrs-report-date" class="form-control">
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label" for="vsrs-report-location">Location/Jurisdiction</label>
+                        <input type="text" id="vsrs-report-location" class="form-control" placeholder="City, State, or Address">
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="vsrs-report-type">Violation Type</label>
+                      <select id="vsrs-report-type" class="form-control">
+                        <option value="Harassment">Harassment</option>
+                        <option value="Stalking/Cyberstalking">Stalking / Cyberstalking</option>
+                        <option value="Domestic Violence/Assault">Domestic Violence / Physical Assault</option>
+                        <option value="Sexual Abuse">Sexual Abuse</option>
+                        <option value="Coercion/Blackmail">Coercion / Blackmail / Sextortion</option>
+                        <option value="Financial Abuse/Identity Fraud">Financial Abuse / Identity Fraud</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="vsrs-report-desc">Detailed Chronological Description</label>
+                      <textarea id="vsrs-report-desc" class="form-control" placeholder="Describe the sequence of actions, what was said, any physical actions, threats, or stalking behaviors..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="vsrs-report-witnesses">Witnesses (Names, Contact info)</label>
+                      <textarea id="vsrs-report-witnesses" class="form-control" style="min-height:70px;" placeholder="Neighbors, friends, or coworkers who saw or heard aspects of the event..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label" for="vsrs-report-evidence">Evidence Log (Screenshots, Texts, Physical items)</label>
+                      <textarea id="vsrs-report-evidence" class="form-control" style="min-height:70px;" placeholder="List emails, text screenshots, audio recordings, or photo paths stored safely..."></textarea>
+                    </div>
+
+                    <div style="display:flex; gap:1rem; margin-top:1.5rem;">
+                      <button type="button" id="vsrs-download-report-btn" class="btn-primary">
+                        <span>Download Confidential Text Log</span> <span>📥</span>
+                      </button>
+                      <button type="button" onclick="window.print()" class="btn-secondary">
+                        <span>Print Report Sheet</span> <span>🖨️</span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                <!-- Live Print Preview -->
+                <div style="max-height: 700px; overflow-y: auto; border:1px solid var(--border-color); border-radius:12px;">
+                  <div class="report-preview-panel">
+                    <div class="report-header">
+                      <div>
+                        <div class="report-title">Incident Record Sheet</div>
+                        <div style="font-size:0.75rem; color:#64748b; font-family:monospace; margin-top:0.25rem;">LOCAL ENCRYPTED REPORT MATRIX</div>
+                      </div>
+                      <div class="report-confidential">CONFIDENTIAL</div>
+                    </div>
+
+                    <div class="report-section">
+                      <div class="report-section-title">1. Record Metadata</div>
+                      <div class="report-field">
+                        <span class="report-field-label">Survivor:</span>
+                        <span class="report-field-value" id="prev-name">Not Provided</span>
+                      </div>
+                      <div class="report-field">
+                        <span class="report-field-label">Contact:</span>
+                        <span class="report-field-value" id="prev-contact">Not Provided</span>
+                      </div>
+                      <div class="report-field">
+                        <span class="report-field-label">Contact Safe?</span>
+                        <span class="report-field-value" id="prev-safe">YES</span>
+                      </div>
+                    </div>
+
+                    <div class="report-section">
+                      <div class="report-section-title">2. Incident Details</div>
+                      <div class="report-field">
+                        <span class="report-field-label">Date/Time:</span>
+                        <span class="report-field-value" id="prev-date">Not Provided</span>
+                      </div>
+                      <div class="report-field">
+                        <span class="report-field-label">Location:</span>
+                        <span class="report-field-value" id="prev-location">Not Provided</span>
+                      </div>
+                      <div class="report-field">
+                        <span class="report-field-label">Type Classified:</span>
+                        <span class="report-field-value" id="prev-type">Harassment</span>
+                      </div>
+                      <div style="margin-top:0.75rem;">
+                        <span class="report-field-label" style="display:block; margin-bottom:0.25rem;">Description:</span>
+                        <div class="report-detail-box" id="prev-desc">Provide description details in the left panel to populate...</div>
+                      </div>
+                    </div>
+
+                    <div class="report-section" style="margin-bottom:0;">
+                      <div class="report-section-title">3. Corroborative Elements</div>
+                      <div style="margin-bottom:0.75rem;">
+                        <span class="report-field-label" style="display:block; margin-bottom:0.25rem;">Witnesses:</span>
+                        <div class="report-detail-box" id="prev-witnesses" style="min-height:40px;">No witnesses logged.</div>
+                      </div>
+                      <div>
+                        <span class="report-field-label" style="display:block; margin-bottom:0.25rem;">Evidence Ledger:</span>
+                        <div class="report-detail-box" id="prev-evidence" style="min-height:40px;">No physical/digital evidence items logged.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </main>
+
+      </div>
+    </section>
+
+    <!-- Emergency Floating Quick Exit Trigger (Visible in Victim portal) -->
+    <div class="quick-exit-container" style="display: none;" id="vsrs-emergency-exit-container">
+      <button class="btn-quick-exit">
+        <span>⚠️</span> Emergency Quick Exit (ESC)
+      </button>
+    </div>
+
+  </div>
+
+  <script>
+    // Quick visibility toggle for emergency exit button based on active portal
+    const observer = new MutationObserver((mutations) => {
+      const victimActive = document.getElementById('view-victim').classList.contains('active');
+      const exitContainer = document.getElementById('vsrs-emergency-exit-container');
+      if (victimActive) {
+        exitContainer.style.display = 'block';
+      } else {
+        exitContainer.style.display = 'none';
+      }
+    });
+    observer.observe(document.getElementById('view-victim'), { attributes: true, attributeFilter: ['class'] });
+  </script>
+  <script src="data/precedents.js"></script>
+  <script src="data/resources.js"></script>
+  <script src="modules/judicial.js"></script>
+  <script src="modules/victim.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

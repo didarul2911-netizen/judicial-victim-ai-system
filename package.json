@@ -1,0 +1,13 @@
+{
+  "name": "judicial-victim-ai-system",
+  "version": "1.0.0",
+  "description": "Judicial Intelligence & Victim Support Portal Prototype",
+  "type": "module",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vite": "^5.2.0"
+  }
+}
