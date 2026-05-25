@@ -1274,6 +1274,7 @@ body.theme-victim .ai-results-box {
     display: inline-flex;
     align-items: center;
     width: auto;
+    flex-shrink: 0;
   }
   
   .sidebar-footer {
