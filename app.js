@@ -68,6 +68,7 @@ function setupNavigation() {
     
     // Reset body classes
     body.className = '';
+    window.scrollTo(0, 0);
 
     if (portal === 'landing') {
       landingView.classList.add('active');
@@ -118,6 +119,12 @@ function triggerSidebarTab(portal, tabId) {
       content.classList.remove('active');
     }
   });
+
+  // Reset scroll height of the main workspace container to the top on tab change
+  const scrollContainer = document.querySelector(`${viewSelector} .portal-content-scroll`);
+  if (scrollContainer) {
+    scrollContainer.scrollTop = 0;
+  }
 }
 
 // ---------------------------------------------------------
@@ -157,6 +164,11 @@ function setupJudicialPortal() {
       </div>
     `;
 
+    // Scroll to results loading block on mobile immediately
+    if (window.innerWidth <= 768) {
+      resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
     setTimeout(() => {
       const analysis = window.analyzeCase(text);
       if (!analysis.success) {
@@ -164,6 +176,11 @@ function setupJudicialPortal() {
         return;
       }
       renderCaseAnalysis(analysis);
+      
+      // Re-scroll to loaded results block on mobile
+      if (window.innerWidth <= 768) {
+        resultsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     }, 1200); // realistic mock calculation delay
   });
 
