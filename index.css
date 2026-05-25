@@ -1201,9 +1201,9 @@ body.theme-victim .ai-results-box {
 }
 
 /* ========================================================= */
-/* RESPONSIVE MOBILE PORTAL LAYOUTS (< 768px)               */
+/* RESPONSIVE MOBILE PORTAL LAYOUTS (< 1024px)              */
 /* ========================================================= */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   /* Landing Dashboard Adjustments */
   .landing-title {
     font-size: 2.25rem;
