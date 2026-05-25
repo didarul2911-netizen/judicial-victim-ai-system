@@ -1238,6 +1238,14 @@ body.theme-victim .ai-results-box {
     z-index: 10;
   }
   
+  .portal-sidebar > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+    overflow: hidden;
+  }
+  
   .sidebar-header {
     display: none; /* Hide header icon to save horizontal space on mobile */
   }
