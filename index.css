@@ -1343,3 +1343,52 @@ body.theme-victim .ai-results-box {
   }
 }
 
+/* Circular Risk Gauge & Log Terminal Enhancements */
+#gauge-progress {
+  transition: stroke-dashoffset 0.8s cubic-bezier(0.4, 0, 0.2, 1), stroke 0.8s ease;
+}
+
+.gauge-risk-low {
+  stroke: #10b981 !important;
+}
+
+.gauge-risk-moderate {
+  stroke: #f59e0b !important;
+}
+
+.gauge-risk-critical {
+  stroke: #ef4444 !important;
+}
+
+/* Logging console entries styling */
+.log-entry {
+  line-height: 1.4;
+  animation: log-fade-in 0.15s ease-out forwards;
+}
+
+.log-entry-info {
+  color: #38bdf8;
+}
+
+.log-entry-step {
+  color: #a5b4fc;
+}
+
+.log-entry-success {
+  color: #34d399;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(52, 211, 153, 0.3);
+}
+
+@keyframes log-fade-in {
+  from {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+

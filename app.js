@@ -228,6 +228,279 @@ function setupJudicialPortal() {
   offenseSlider.addEventListener('input', updateSentencingRange);
   historySlider.addEventListener('input', updateSentencingRange);
   updateSentencingRange(); // Initial run
+
+  // Setup Theme 1: Judicial Intelligence components
+  setupJudicialIntelligenceTheme1();
+}
+
+function setupJudicialIntelligenceTheme1() {
+  // --- 1. Precedent Parser ---
+  const parserPresets = document.querySelectorAll('.jid-parser-preset');
+  const parserText = document.getElementById('jid-parser-text');
+  const runParserBtn = document.getElementById('jid-run-parser-btn');
+  const logsContainer = document.getElementById('jid-parser-logs');
+  const confidenceBadge = document.getElementById('jid-parser-confidence-badge');
+  const outputFields = document.getElementById('jid-parser-output-fields');
+  const placeholder = document.getElementById('jid-parser-placeholder');
+  const copyBtn = document.getElementById('jid-parser-copy-btn');
+  let parsedMetadata = null;
+
+  parserPresets.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const presetId = btn.getAttribute('data-preset');
+      const sample = window.getParserSample(presetId);
+      if (sample) {
+        parserText.value = sample.rawText;
+      }
+    });
+  });
+
+  runParserBtn.addEventListener('click', () => {
+    const text = parserText.value.trim();
+    if (!text) {
+      alert("Please enter legacy ruling text to parse.");
+      return;
+    }
+
+    runParserBtn.disabled = true;
+    logsContainer.innerHTML = '';
+    outputFields.style.display = 'none';
+    confidenceBadge.style.display = 'none';
+    placeholder.style.display = 'flex';
+    parsedMetadata = null;
+
+    // Scroll to logs console on mobile
+    if (window.innerWidth <= 768) {
+      logsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    window.parseLegacyText(
+      text,
+      (msg) => {
+        const logLine = document.createElement('div');
+        logLine.className = 'log-entry';
+        if (msg.startsWith('[Success]')) {
+          logLine.classList.add('log-entry-success');
+        } else if (msg.startsWith('[OCR') || msg.startsWith('[Layout')) {
+          logLine.classList.add('log-entry-step');
+        } else {
+          logLine.classList.add('log-entry-info');
+        }
+        logLine.textContent = msg;
+        logsContainer.appendChild(logLine);
+        logsContainer.scrollTop = logsContainer.scrollHeight;
+      },
+      (metadata) => {
+        runParserBtn.disabled = false;
+        parsedMetadata = metadata;
+
+        document.getElementById('out-court').textContent = metadata.court;
+        document.getElementById('out-citation').textContent = metadata.citation;
+        document.getElementById('out-date').textContent = metadata.date;
+        document.getElementById('out-judge').textContent = metadata.judge;
+        document.getElementById('out-casetype').textContent = metadata.caseType;
+        document.getElementById('out-holdings').textContent = metadata.holdings;
+        document.getElementById('out-ratio').textContent = metadata.ratioDecidendi;
+
+        confidenceBadge.textContent = `Confidence: ${metadata.ocrConfidence}`;
+        confidenceBadge.style.display = 'inline-block';
+
+        placeholder.style.display = 'none';
+        outputFields.style.display = 'flex';
+
+        // Scroll to parsed output on mobile
+        if (window.innerWidth <= 768) {
+          outputFields.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    );
+  });
+
+  copyBtn.addEventListener('click', () => {
+    if (parsedMetadata) {
+      const jsonStr = JSON.stringify(parsedMetadata, null, 2);
+      navigator.clipboard.writeText(jsonStr).then(() => {
+        const originalText = copyBtn.textContent;
+        copyBtn.textContent = "Copied! ✓";
+        setTimeout(() => {
+          copyBtn.textContent = originalText;
+        }, 2000);
+      }).catch(err => {
+        console.error("Failed to copy json metadata", err);
+      });
+    }
+  });
+
+  // --- 2. Adjournment Predictor ---
+  const predForm = document.getElementById('jid-predictor-form');
+  const pastSlider = document.getElementById('jid-pred-past');
+  const workloadSlider = document.getElementById('jid-pred-workload');
+  const attorneySlider = document.getElementById('jid-pred-attorney');
+  const pastVal = document.getElementById('jid-pred-past-val');
+  const workloadVal = document.getElementById('jid-pred-workload-val');
+  const attorneyVal = document.getElementById('jid-pred-attorney-val');
+
+  const predPlaceholder = document.getElementById('jid-predictor-placeholder');
+  const predOutput = document.getElementById('jid-predictor-output');
+  const gaugePercent = document.getElementById('gauge-percent');
+  const gaugeRiskBadge = document.getElementById('gauge-risk-badge');
+  const gaugeProgress = document.getElementById('gauge-progress');
+  const insightsList = document.getElementById('pred-insights-list');
+  const directivesList = document.getElementById('pred-directives-list');
+
+  pastSlider.addEventListener('input', () => {
+    pastVal.textContent = pastSlider.value;
+  });
+  workloadSlider.addEventListener('input', () => {
+    workloadVal.textContent = workloadSlider.value + '%';
+  });
+  attorneySlider.addEventListener('input', () => {
+    attorneyVal.textContent = attorneySlider.value + '%';
+  });
+
+  predForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const caseType = document.getElementById('jid-pred-casetype').value;
+    const pastAdjournments = parseInt(pastSlider.value) || 0;
+    const benchWorkload = parseInt(workloadSlider.value) || 0;
+    const attorneyDelayRate = parseInt(attorneySlider.value) || 0;
+    const caseAgeDays = parseInt(document.getElementById('jid-pred-age').value) || 0;
+    const delayReason = document.getElementById('jid-pred-reason').value;
+
+    const result = window.predictAdjournments({
+      caseType,
+      pastAdjournments,
+      benchWorkload,
+      attorneyDelayRate,
+      caseAgeDays,
+      delayReason
+    });
+
+    predPlaceholder.style.display = 'none';
+    predOutput.style.display = 'flex';
+
+    // Animate Circular Gauge
+    gaugePercent.textContent = `${result.probability}%`;
+    gaugeRiskBadge.textContent = `${result.riskLevel} RISK`;
+
+    // Clear previous risk classes
+    gaugeProgress.className.baseVal = '';
+    gaugePercent.style.color = '#fff';
+    if (result.riskLevel === 'Critical') {
+      gaugeProgress.classList.add('gauge-risk-critical');
+      gaugeRiskBadge.style.color = '#ef4444';
+    } else if (result.riskLevel === 'Moderate') {
+      gaugeProgress.classList.add('gauge-risk-moderate');
+      gaugeRiskBadge.style.color = '#f59e0b';
+    } else {
+      gaugeProgress.classList.add('gauge-risk-low');
+      gaugeRiskBadge.style.color = '#10b981';
+    }
+
+    // Radial stroke-dashoffset math
+    const circumference = 440;
+    const offset = circumference - (circumference * result.probability / 100);
+    gaugeProgress.style.strokeDashoffset = offset;
+
+    // Pop insights
+    insightsList.innerHTML = '';
+    result.insights.forEach(insight => {
+      const li = document.createElement('li');
+      li.textContent = insight;
+      insightsList.appendChild(li);
+    });
+
+    // Pop directives
+    directivesList.innerHTML = '';
+    result.recommendations.forEach(rec => {
+      const li = document.createElement('li');
+      li.textContent = rec;
+      directivesList.appendChild(li);
+    });
+
+    // Scroll to predictor output on mobile
+    if (window.innerWidth <= 768) {
+      predOutput.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+
+  // --- 3. Smart Docketing ---
+  const docketForm = document.getElementById('jid-docket-form');
+  const docketText = document.getElementById('jid-docket-text');
+  const docketPresets = document.querySelectorAll('.jid-docket-preset');
+  const docketPlaceholder = document.getElementById('jid-docket-placeholder');
+  const docketOutput = document.getElementById('jid-docket-output');
+
+  const outCategory = document.getElementById('docket-out-category');
+  const outBench = document.getElementById('docket-out-bench');
+  const outRoom = document.getElementById('docket-out-room');
+  const outWorkloadLbl = document.getElementById('docket-out-workload-lbl');
+  const outWorkloadBar = document.getElementById('docket-out-workload-bar');
+  const outQueue = document.getElementById('docket-out-queue');
+  const outTime = document.getElementById('docket-out-time');
+  const outConfidence = document.getElementById('docket-out-confidence');
+  const outKeywords = document.getElementById('docket-out-keywords');
+
+  docketPresets.forEach(btn => {
+    btn.addEventListener('click', () => {
+      docketText.value = btn.getAttribute('data-text');
+    });
+  });
+
+  docketForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const text = docketText.value.trim();
+
+    const result = window.matchCaseToBench(text);
+    if (!result.success) {
+      alert(result.message);
+      return;
+    }
+
+    docketPlaceholder.style.display = 'none';
+    docketOutput.style.display = 'flex';
+
+    outCategory.textContent = result.detectedCategory;
+    outBench.textContent = result.recommendedBench;
+    outRoom.textContent = result.courtRoom;
+    outWorkloadLbl.textContent = `${result.benchWorkload}%`;
+
+    outWorkloadBar.style.width = `${result.benchWorkload}%`;
+    outWorkloadBar.className = 'risk-level';
+    if (result.benchWorkload > 80) {
+      outWorkloadBar.classList.add('risk-high');
+    } else if (result.benchWorkload > 60) {
+      outWorkloadBar.classList.add('risk-medium');
+    } else {
+      outWorkloadBar.classList.add('risk-low');
+    }
+
+    outQueue.textContent = `Case #${result.queuePosition} in Queue`;
+    outTime.textContent = `${result.estimatedDays} Court Days`;
+    outConfidence.textContent = result.confidence;
+
+    outKeywords.innerHTML = '';
+    result.matchedKeywords.forEach(kw => {
+      const span = document.createElement('span');
+      span.className = 'statute-tag';
+      span.textContent = kw;
+      outKeywords.appendChild(span);
+    });
+
+    if (outKeywords.children.length === 0) {
+      const span = document.createElement('span');
+      span.className = 'statute-tag';
+      span.style.fontStyle = 'italic';
+      span.textContent = 'None Mapped';
+      outKeywords.appendChild(span);
+    }
+
+    // Scroll to docket output on mobile
+    if (window.innerWidth <= 768) {
+      docketOutput.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
 }
 
 function renderCaseAnalysis(data) {
