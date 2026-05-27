@@ -137,10 +137,11 @@ function setupJudicialPortal() {
   const resultsContainer = document.getElementById('jid-analysis-results');
 
   // Preset loading templates
+  // Preset loading templates - Localized for Bangladesh
   const casePresets = {
-    preset1: `The defendant, John Carter, has a history of stalking his ex-partner. On the night of May 12, he approached her home, shouted threats, and slapped her across the face when she tried to close the door. Neighbor witnesses called the police, and he was arrested. The victim reported severe emotional trauma and fears he will return with a firearm.`,
-    preset2: `The suspect targeted several victims over Twitter and email, sending more than three hundred messages. He created multiple burner accounts after being blocked. The messages detailed threats of physical violence, leaked personal photos, and tracked the victim's location to her office, causing her severe emotional distress.`,
-    preset3: `An individual was stopped at the terminal checkpoint carrying five forged Social Security cards and fake alien authorization files in an attempt to secure employment. The prosecution claims the defendant was aware that the identity details belonged to real individuals living in Texas, violating aggravated theft provisions.`
+    preset1: `The defendant, Kalam Miah, has a history of domestic violence and dowry harassment (demanding BDT 2,00,000) from his wife. On the night of May 12, he approached her father's home in Dhaka, shouted threats of violence, and slapped her when she refused to give him money. Neighbors called the police via 999. The victim filed a complaint under Nari O Shishu Nirjatan Daman Ain and fears physical injury.`,
+    preset2: `The suspect targeted the victim over Facebook Messenger and email, sending more than three hundred abusive messages after she blocked his accounts. The messages detailed threats of leaking private photos, defaming her family, and tracking her movements to her university, violating provisions of the Cyber Security Act, 2024 and causing severe mental distress.`,
+    preset3: `The respondent produced forged land transfer papers and a fake unregistered Heba deed to take possession of CS Plot 1024, Khatian 85. The plaintiff asserts that the signature on the deed is forged and the mutation was obtained through fraudulent identity cheating in the land registry, violating Section 419/420 of the Penal Code.`
   };
 
   document.querySelectorAll('.jid-preset-btn').forEach(btn => {
@@ -201,7 +202,7 @@ function setupJudicialPortal() {
   // Initial Precedents list render
   performSearch();
 
-  // Sentencing Estimator
+  // Sentencing Estimator - Redesigned as Bangladeshi Bail & Penalty Advisor
   const offenseSlider = document.getElementById('jid-offense-level');
   const historySlider = document.getElementById('jid-history-points');
   const offenseVal = document.getElementById('jid-offense-level-val');
@@ -217,15 +218,15 @@ function setupJudicialPortal() {
     
     document.getElementById('jid-guideline-months').textContent = estimate.range;
     document.getElementById('jid-guideline-zone').textContent = estimate.zone;
-    document.getElementById('jid-guideline-category').textContent = `Category ${estimate.categoryRoman}`;
+    document.getElementById('jid-guideline-category').textContent = estimate.courtName;
     
     const probationText = estimate.probationEligible 
-      ? "YES - Eligible for alternative probation programs." 
-      : "NO - Custodial confinement mandated by federal law.";
+      ? `YES - Trial court may grant bail as a right, or consider probation (Bail Chance: ${estimate.bailChance}%).` 
+      : `NO - Non-Bailable offense (Bail Chance: ${estimate.bailChance}%). Custodial detention is standard practice under CrPC.`;
     document.getElementById('jid-guideline-probation').textContent = probationText;
   }
 
-  offenseSlider.addEventListener('input', updateSentencingRange);
+  offenseSlider.addEventListener('change', updateSentencingRange);
   historySlider.addEventListener('input', updateSentencingRange);
   updateSentencingRange(); // Initial run
 
@@ -570,7 +571,7 @@ function renderCaseAnalysis(data) {
       </div>
 
       <div>
-        <h5 style="color:#fff; font-size:1rem; font-family:var(--font-family-heading); margin-bottom:0.75rem; border-bottom:1px solid var(--border-color); padding-bottom:0.25rem;">Suggested Federal Statutes</h5>
+        <h5 style="color:#fff; font-size:1rem; font-family:var(--font-family-heading); margin-bottom:0.75rem; border-bottom:1px solid var(--border-color); padding-bottom:0.25rem;">Suggested Legal Statutes</h5>
         ${statutesHtml}
       </div>
 
@@ -581,7 +582,7 @@ function renderCaseAnalysis(data) {
 
       <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 1rem; background: rgba(255,255,255,0.01); border:1px solid var(--border-color); padding: 1rem; border-radius: 8px; font-size:0.85rem;">
         <div><strong style="color:var(--text-muted);">Medium Identified:</strong> <span style="color:#fff;">${data.entities.medium}</span></div>
-        <div><strong style="color:var(--text-muted);">Jurisdiction:</strong> <span style="color:#fff;">U.S. Federal Jurisdiction</span></div>
+        <div><strong style="color:var(--text-muted);">Jurisdiction:</strong> <span style="color:#fff;">Bangladesh Jurisdiction</span></div>
       </div>
     </div>
   `;

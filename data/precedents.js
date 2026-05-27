@@ -1,124 +1,110 @@
 window.precedents = [
   {
     id: "P001",
-    title: "United States v. Castleman",
-    citation: "572 U.S. 157 (2014)",
-    court: "U.S. Supreme Court",
-    year: 2014,
+    title: "BLAST v. Bangladesh",
+    citation: "55 DLR 363 (2003)",
+    court: "Supreme Court of Bangladesh (High Court Division)",
+    year: 2003,
     category: "Domestic Violence",
-    keywords: ["domestic abuse", "physical force", "firearm possession", "misdemeanor", "assault", "battery", "coercive control"],
-    synopsis: "The Supreme Court ruled that a conviction for misdemeanor domestic assault qualifies as a 'misdemeanor crime of domestic violence' under federal law (18 U.S.C. § 922(g)(9)), even if the state statute does not require 'physical force' as an element, provided there is some offensive physical contact.",
-    ruling: "Affirmed that misdemeanor domestic assault involving any offensive touching meets the federal definition of physical force.",
-    significance: "Crucial for restricting firearm access for domestic abusers and reinforcing federal protections for survivors.",
-    statutes: ["18 U.S.C. § 922(g)(9)", "18 U.S.C. § 921(a)(33)(A)"]
+    keywords: ["fundamental rights", "police arrest", "custodial torture", "detention guidelines", "safeguards", "human rights"],
+    synopsis: "The High Court Division issued landmark directives on arrest without warrant under Section 54 of the CrPC and detention in police custody under Section 167 of the CrPC, outlining clear guidelines to prevent torture and protect citizens' fundamental rights.",
+    ruling: "Directed strict guidelines for police arrests and interrogation, protecting detainees from physical assault and custodial abuse.",
+    significance: "The foundation of citizen protection against arbitrary arrest and police brutality in Bangladesh.",
+    statutes: ["CrPC, 1898 Section 54", "Constitution of Bangladesh Art. 31, 32, 35"]
   },
   {
     id: "P002",
-    title: "United States v. Cassidy",
-    citation: "814 F. Supp. 2d 574 (D. Md. 2011)",
-    court: "U.S. District Court for Maryland",
-    year: 2011,
-    category: "Cyberstalking",
-    keywords: ["cyberstalking", "harassment", "first amendment", "free speech", "twitter", "online threats", "internet harassment"],
-    synopsis: "The defendant was charged with cyberstalking under 18 U.S.C. § 2261A for posting thousands of derogatory and harassing tweets targeting a religious figure. The court dismissed the indictment, ruling that the federal cyberstalking statute could not constitutionally criminalize speech that did not constitute true threats or incitement, protecting critical speech under the First Amendment.",
-    ruling: "Dismissed the indictment on First Amendment grounds, holding that the statute was unconstitutionally overbroad as applied to public discourse.",
-    significance: "Established a vital boundary between criminal online stalking/threats and protected (albeit offensive) public online criticism.",
-    statutes: ["18 U.S.C. § 2261A", "U.S. Const. amend. I"]
+    title: "State v. Shukur Ali",
+    citation: "56 DLR 430 (2004)",
+    court: "Supreme Court of Bangladesh (Appellate Division)",
+    year: 2004,
+    category: "Sexual Assault",
+    keywords: ["rape", "capital punishment", "statutory interpretation", "standards of proof", "nari o shishu", "victim protection"],
+    synopsis: "The Appellate Division reviewed the death penalty conviction under the Nari O Shishu Nirjatan Daman Ain and established guidelines for analyzing rape charges, corroboration of victim testimony, and the constitutional limits of mandatory death sentences.",
+    ruling: "Affirmed the conviction but substituted the mandatory death penalty with imprisonment for life, emphasizing judicial discretion in sentencing.",
+    significance: "Established standard guidelines for trial courts handling sexual assault and rape allegations, ensuring fair trials and protection of victim rights.",
+    statutes: ["Nari O Shishu Nirjatan Daman Ain, 2000 Section 9(2)"]
   },
   {
     id: "P003",
-    title: "Flores-Figueroa v. United States",
-    citation: "556 U.S. 646 (2009)",
-    court: "U.S. Supreme Court",
+    title: "Shirin Akhter v. State",
+    citation: "14 BLC 223 (2009)",
+    court: "Supreme Court of Bangladesh (High Court Division)",
     year: 2009,
-    category: "Fraud & Identity Theft",
-    keywords: ["identity theft", "aggravated", "fraud", "mens rea", "intent", "immigration", "knowledge"],
-    synopsis: "The defendant used counterfeit social security and alien registration cards to secure employment. The government charged him with aggravated identity theft. The Supreme Court ruled that the government must prove the defendant *knew* the identification numbers actually belonged to a real person, not just that they were fake.",
-    ruling: "Held that 18 U.S.C. § 1028A(a)(1) requires the Government to show the defendant knew that the means of identification belonged to another actual person.",
-    significance: "Raised the burden of proof for federal prosecutors in aggravated identity theft cases, safeguarding defendants from automated sentencing add-ons unless intent is clear.",
-    statutes: ["18 U.S.C. § 1028A(a)(1)"]
+    category: "Domestic Violence",
+    keywords: ["dowry", "physical cruelty", "dowry prohibition act", "torture", "domestic abuse", "protection orders"],
+    synopsis: "The High Court examined charges of torture and physical cruelty for dowry under the Dowry Prohibition Act. The court clarified that persistent mental harassment and physical assault to extract money constitutes actionable cruelty, justifying protective custody and judicial orders.",
+    ruling: "Upheld convictions for dowry-related torture and established that a husband is legally liable for physical abuse conducted by family members in his home.",
+    significance: "Reinforced protections against dowry-related violence and set precedent for early judicial protection orders under domestic violence contexts.",
+    statutes: ["Dowry Prohibition Act, 1980 Section 4", "Penal Code, 1860 Section 323"]
   },
   {
     id: "P004",
-    title: "People v. Liberta",
-    citation: "64 N.Y.2d 152 (1984)",
-    court: "New York Court of Appeals",
-    year: 1984,
-    category: "Sexual Assault",
-    keywords: ["sexual assault", "spousal exemption", "marital rape", "consent", "coercion", "equal protection"],
-    synopsis: "The court reviewed a conviction for rape and sodomy committed by a husband against his legally separated wife. The court declared New York's marital rape exemption and its gender-based definition (which exempted women from being charged with rape) unconstitutional under the Equal Protection Clause.",
-    ruling: "Struck down the marital exemption for rape and sodomy, asserting there is no rational basis to distinguish between married and unmarried survivors of sexual assault.",
-    significance: "A landmark decision that dismantled the archaic common-law marital exemption for rape in New York, setting a major precedent nationwide.",
-    statutes: ["N.Y. Penal Law § 130.35", "U.S. Const. amend. XIV"]
+    title: "State v. Cyber Tribunal Dhaka Cases",
+    citation: "CTD-2023-402",
+    court: "Cyber Tribunal Dhaka",
+    year: 2023,
+    category: "Cyberstalking",
+    keywords: ["cyberstalking", "online harassment", "digital security act", "cyber security act", "social media threat", "digital evidence"],
+    synopsis: "The tribunal convicted an individual under the Digital Security Act / Cyber Security Act for distributing offensive photos and threatening messages on social media platforms. The court ruled on the admissibility of screenshots and digital forensic evidence in cyberstalking cases.",
+    ruling: "Found the accused guilty of online harassment and identity theft, sentencing him to 3 years imprisonment and fine.",
+    significance: "Validates the legal admissibility of electronic screenshots and chat logs in proving online harassment and stalking in Bangladesh.",
+    statutes: ["Cyber Security Act, 2024 Section 24, 25"]
   },
   {
     id: "P005",
-    title: "United States v. Ackell",
-    citation: "907 F.3d 67 (1st Cir. 2018)",
-    court: "U.S. Court of Appeals for the First Circuit",
+    title: "Ehsanul Kabir v. Bangladesh",
+    citation: "70 DLR (AD) 115 (2018)",
+    court: "Supreme Court of Bangladesh (Appellate Division)",
     year: 2018,
-    category: "Cyberstalking",
-    keywords: ["cyberstalking", "minors", "extortion", "sextortion", "coercion", "online harassment"],
-    synopsis: "The defendant engaged in 'sextortion' by coercing a minor to send explicit photos online and threatening to distribute them to her family and peers. He was convicted of cyberstalking resulting in death, as the victim subsequently committed suicide. The First Circuit affirmed the conviction, rejecting arguments that the statute was unconstitutionally vague.",
-    ruling: "Upheld the constitutionality of 18 U.S.C. § 2261A as applied to conduct intended to harass and intimidate.",
-    significance: "Solidified the application of federal cyberstalking laws to combat severe digital abuse, including online sextortion targeting vulnerable minors.",
-    statutes: ["18 U.S.C. § 2261A(2)", "18 U.S.C. § 2261A(1)(b)"]
-  },
-  {
-    id: "P006",
-    title: "State v. Carter",
-    citation: "156 N.J. 420 (1998)",
-    court: "Supreme Court of New Jersey",
-    year: 1998,
-    category: "Domestic Violence",
-    keywords: ["restraining order", "domestic violence", "history of abuse", "injunction", "stalking", "harassment"],
-    synopsis: "This case established criteria for granting permanent restraining orders under New Jersey's Prevention of Domestic Violence Act. The court clarified that judges must examine the history of abuse between the parties, not just the single triggering event, to evaluate whether a permanent order is necessary to prevent future harm.",
-    ruling: "Affirmed that a court must evaluate the totality of circumstances, focusing heavily on prior history of abuse, to determine the necessity of ongoing protection.",
-    significance: "Empowered courts to take a holistic, protective view of domestic abuse cycles rather than viewing incidents in isolation.",
-    statutes: ["N.J.S.A. 2C:25-29"]
+    category: "Fraud & Identity Theft",
+    keywords: ["land fraud", "unregistered deed", "forged transfer", "heba deed", "civil dispute", "khatian records"],
+    synopsis: "A dispute regarding forged land transfer papers and unregistered Heba deeds. The Appellate Division held that registration is mandatory for gifts/Heba of immovable property and that mutation records or fake CS/SA Khatians cannot establish title without a registered deed.",
+    ruling: "Ruled that forged land title documents and unregistered deeds are null and void under the Registration Act and Transfer of Property Act.",
+    significance: "Key precedent for resolving land forgery, cheating, and property identity theft cases in land registries.",
+    statutes: ["Registration Act, 1908 Section 17", "Transfer of Property Act, 1882 Section 123"]
   }
 ];
 
 window.statutes = [
   {
-    code: "18 U.S.C. § 113",
-    title: "Assault within maritime and territorial jurisdiction",
-    description: "Defines federal assault crimes, ranging from simple assault (up to 6 months) to assault with intent to commit murder (up to 20 years) and assault resulting in substantial bodily injury to a spouse, intimate partner, or dating partner.",
+    code: "Penal Code, 1860 Sec. 326",
+    title: "Voluntarily causing grievous hurt by dangerous weapons or means",
+    description: "Criminalizes causing grievous hurt using deadly instruments, fire, poison, explosive substances, or animals. Penalties can extend to life imprisonment or rigorous imprisonment up to 10 years, and fine.",
     elements: [
-      "Jurisdiction (federal maritime or territorial)",
-      "An intentional attempt or threat to inflict injury upon another",
-      "Apparent present ability to carry out the threat, creating reasonable apprehension of immediate bodily harm"
+      "Voluntary commission of hurt",
+      "The hurt caused must be 'grievous' (e.g. permanent loss of sight, hearing, limb, fracture)",
+      "Done by means of an instrument for shooting, stabbing, cutting, or dangerous weapon"
     ]
   },
   {
-    code: "18 U.S.C. § 2261A",
-    title: "Federal Cyberstalking Statute",
-    description: "Criminalizes traveling in interstate commerce or using any interactive computer service with the intent to kill, injure, harass, intimidate, or place under surveillance another person, placing them in reasonable fear of death or serious bodily injury, or causing substantial emotional distress.",
+    code: "Nari O Shishu Act, 2000 Sec. 9",
+    title: "Rape, Gang Rape and Rape causing death",
+    description: "Defines and punishes the offence of rape. If committed by a single person, penalty is rigorous imprisonment for life and fine; if death is caused or gang rape occurs, penalty is death or life imprisonment with fine.",
     elements: [
-      "Use of mail, interactive computer service, or interstate commerce",
-      "Intent to kill, injure, harass, intimidate, or place under surveillance",
-      "Creates reasonable fear of death/serious injury, or causes severe emotional distress"
+      "Sexual intercourse under circumstances falling within the definition of rape (without consent, against will, etc.)",
+      "Use of physical force, threats of death, or coercion",
+      "Or offense targeted at a child under the age of consent (14 years)"
     ]
   },
   {
-    code: "18 U.S.C. § 1028A",
-    title: "Aggravated Identity Theft",
-    description: "Imposes a mandatory consecutive 2-year prison sentence on anyone who knowingly transfers, possesses, or uses, without lawful authority, a means of identification of another person during and in relation to certain predicate felonies (such as wire fraud, bank fraud, or immigration violations).",
+    code: "Cyber Security Act, 2024 Sec. 24",
+    title: "Identity Fraud / Cheating by Personation",
+    description: "Criminalizes using a computer, digital device, or social media network to intentionally deceive another by pretending to be someone else, or using another's identity details without consent. Punishment is up to 5 years imprisonment or fine.",
     elements: [
-      "Knowingly transferring, possessing, or using a means of identification",
-      "Lack of lawful authority to use said identification",
-      "Occurring during and in relation to an enumerated felony",
-      "Knowledge that the identification belonged to a real, living person (per Flores-Figueroa)"
+      "Intentional deception or cheating by personation",
+      "Use of digital devices, social networks, or electronic accounts",
+      "Unauthorized use of name, photo, or credentials of a real person"
     ]
   },
   {
-    code: "18 U.S.C. § 2242",
-    title: "Sexual abuse",
-    description: "Criminalizes knowingly causing another person to engage in a sexual act by threatening or placing that other person in fear (other than fear of death, serious bodily injury, or kidnapping), or when the victim is incapable of appraising or resisting the conduct.",
+    code: "Domestic Violence Act, 2010 Sec. 10 & 11",
+    title: "Protection Orders & Residence Orders",
+    description: "Empowers the courts (Magistrates) to issue Protection Orders prohibiting the respondent from committing acts of domestic violence, entering the victim's place of employment/residence, or communicating with the victim.",
     elements: [
-      "Knowingly causing another to engage in a sexual act",
-      "Using threats or placing the victim in fear (coercion/extortion)",
-      "Or taking advantage of a victim who is intoxicated, unconscious, or mentally impaired"
+      "Existence of domestic relationship (marriage, family, shared household)",
+      "Commission of domestic violence (physical, mental, sexual, or economic abuse)",
+      "Necessity to issue order to protect victim's physical safety or livelihood"
     ]
   }
 ];

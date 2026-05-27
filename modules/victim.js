@@ -1,5 +1,5 @@
 /**
- * Generates an empathetic, trauma-informed response to victim chat input.
+ * Generates an empathetic, trauma-informed response to victim chat input in Bangladesh.
  * @param {string} message - Message sent by user.
  * @returns {string} - Chatbot response.
  */
@@ -11,49 +11,49 @@ window.getChatbotResponse = function(message) {
   }
 
   // Emotional triggers
-  const fearTriggers = ["scared", "afraid", "danger", "hurt", "kill", "threaten", "weapon", "gun", "knife", "punch", "hit", "police"];
-  const shelterTriggers = ["shelter", "house", "stay", "sleep", "flee", "leave", "escape", "run away", "home"];
-  const legalTriggers = ["court", "lawyer", "restraining order", "police", "arrest", "sue", "legal", "divorce", "custody", "injunction"];
-  const digitalTriggers = ["hack", "online", "phone", "email", "spy", "tracked", "location", "message", "screenshot", "cyber", "stalk"];
+  const fearTriggers = ["scared", "afraid", "danger", "hurt", "kill", "threaten", "weapon", "gun", "knife", "punch", "hit", "police", "ramda", "terror"];
+  const shelterTriggers = ["shelter", "house", "stay", "sleep", "flee", "leave", "escape", "run away", "home", "occ"];
+  const legalTriggers = ["court", "lawyer", "restraining order", "police", "arrest", "sue", "legal", "divorce", "custody", "injunction", "gd", "general diary", "fir", "thana", "blast"];
+  const digitalTriggers = ["hack", "online", "phone", "email", "spy", "tracked", "location", "message", "screenshot", "cyber", "stalk", "facebook", "photo", "threaten"];
   const emotionTriggers = ["crying", "sad", "pain", "hurt", "lonely", "depressed", "anxious", "panic", "suicide", "heal"];
 
   if (fearTriggers.some(t => msg.includes(t))) {
-    return `Your safety is the absolute priority. If you feel you are in immediate danger, please dial 911 or find a safe physical location. You can also use the red **Emergency Quick Exit** button at the bottom of the screen to close this site instantly. 
+    return `Your safety is the absolute priority. If you feel you are in immediate danger, please dial **999** for emergency police assistance, or find a safe physical location. You can also use the red **Emergency Quick Exit** button at the bottom of the screen to close this site instantly. 
 
-If you are safe right now but worried about future danger, we can create a safety plan together, or I can help you contact the **National Domestic Violence Hotline** (1-800-799-SAFE) immediately.`;
+If you are safe right now but worried about your safety, we can create a safety plan, or I can help you contact the **National Violence Against Women Helpline** at **109** immediately.`;
   }
 
   if (shelterTriggers.some(t => msg.includes(t))) {
-    return `If you need a safe place to sleep or stay, emergency housing is available. Organizations like **Safe Horizon** run 24/7 confidential shelters that accommodate children and provide meals. 
+    return `If you need a safe place to stay, temporary shelter is available. You can access the **One-Stop Crisis Center (OCC)** at Dhaka Medical College Hospital and other public medical colleges, which provide immediate safe shelter, medical aid, and legal help. 
 
-Would you like me to filter our directory for housing shelters, or help you make an emergency intake call?`;
+Alternatively, the **Victim Support Center at Tejgaon Police Station** and NGOs like **Bangladesh Mahila Parishad** operate safe homes. Would you like me to filter our directory for safe housing or legal aid contact details?`;
   }
 
   if (legalTriggers.some(t => msg.includes(t))) {
-    return `Navigating the legal system can feel overwhelming, but you do not have to do it alone. You may be eligible for pro-bono representation through the **Legal Aid Society** to help secure a protective order, handle child custody, or navigate immigration filings. 
+    return `Navigating the legal system in Bangladesh can feel complex, but there is free support. You can call the **National Government Legal Aid Helpline** at **16430** for free consultations and court representation. 
 
-For general legal information, **WomensLaw.org** provides simple, state-by-state guides to court procedures. I can guide you to their databases if you'd like.`;
+Organizations like **BLAST (Bangladesh Legal Aid and Services Trust)** and **Ain o Salish Kendra (ASK)** provide free legal assistance, mediation, and help with filing General Diaries (GD) or First Information Reports (FIR) at police stations (Thanas). Would you like their direct hotline numbers?`;
   }
 
   if (digitalTriggers.some(t => msg.includes(t))) {
-    return `Digital safety is incredibly important. If someone is tracking your device or stalking you online:
-1. Try to access resources from a safe, neutral device (like a library computer or a trusted friend's phone).
-2. Keep screenshots and logs of all harassing messages, emails, or posts. You can compile these securely in our **Document Builder** tab.
-3. Consider changing passwords and enabling two-factor authentication on accounts from a clean device.`;
+    return `Digital stalking or harassment (especially via Facebook, WhatsApp, or email) is a criminal offense under the **Cyber Security Act, 2024** and Section 509 of the Penal Code. 
+1. Keep exact screenshots and URLs of the offending profiles, messages, or posts. You can list them in our **Document Builder** tab.
+2. You can file a General Diary (GD) at your local Thana (Police Station) or file a complaint directly to the **Cyber Tribunal Dhaka**.
+3. Access social accounts from a safe device if you suspect your personal phone is compromised, and turn off location features.`;
   }
 
   if (emotionTriggers.some(t => msg.includes(t))) {
-    return `I am so sorry you are going through this. What you are feeling is completely valid, and it is okay to feel overwhelmed. You are incredibly brave for reaching out. 
+    return `I am so sorry you are going through this. Please know that what you are feeling is valid, and you are not alone. 
 
-If you'd like someone to talk to who is trained to help, the **Crisis Text Line** (text HOME to 741741) or the **VictimConnect Resource Center** are free, fully confidential resources where you can speak or text with an advocate. I am also here to continue chatting if you wish.`;
+If you need someone to talk to for emotional support, you can call **Kaan Pete Roi** (01777-763434 / 01844-015822), the first confidential emotional support and suicide prevention helpline in Bangladesh. Their trained volunteers offer a safe, non-judgmental space to listen. I am also here to continue chatting.`;
   }
 
   // Greeting / general
   if (msg.includes("hello") || msg.includes("hi") || msg.includes("hey")) {
-    return "Hello. I am your support assistant. I am here to help you explore local resources, create an emergency safety checklist, or compile incident records. You are in a safe, confidential space. How can I support you today?";
+    return "Hello. I am your support assistant. I am here to help you explore crisis hotlines, pro-bono legal services (like BLAST), or draft a General Diary (GD) timeline report. You are in a safe, confidential space. How can I help you today?";
   }
 
-  return "Thank you for sharing that with me. I hear you, and I want to help you find the support you deserve. Would you like to check local resources, build a secure incident log, or learn about safety planning?";
+  return "Thank you for sharing that with me. I hear you, and I want to help you find the support you deserve in Bangladesh. Would you like to check local resources, draft a General Diary (GD) draft, or generate a personal safety checklist?";
 };
 
 /**
@@ -78,7 +78,7 @@ window.searchResources = function(query = "", category = "") {
 };
 
 /**
- * Compiles a list of actionable safety checklist steps based on user choices.
+ * Compiles a list of actionable safety checklist steps based on user choices in Bangladesh.
  * @param {object} choices - User options.
  * @returns {Array} - Checklist items.
  */
@@ -88,58 +88,62 @@ window.generateSafetyChecklist = function(choices) {
   // Default essentials
   checklist.push({
     id: "s1",
-    text: "Identify escape routes out of your house (doors, windows, fire escapes) and practice exiting them."
+    text: "Identify exits out of your house (doors, gates, neighbors' adjoining rooftops) and practice moving through them."
   });
   checklist.push({
     id: "s2",
-    text: "Keep a charged phone and a backup power bank on your person at all times."
+    text: "Keep your phone charged and ensure you have emergency credit/minutes loaded for direct dialing."
+  });
+  checklist.push({
+    id: "s3",
+    text: "Memorize the direct number of your local Thana (Police Station) and the national helplines: 999 and 109."
   });
 
   if (choices.hasChildren) {
     checklist.push({
       id: "s_child1",
-      text: "Teach children how to dial 911 and state their address clearly in an emergency."
+      text: "Teach children how to dial 999 and state their address/location clearly in an emergency."
     });
     checklist.push({
       id: "s_child2",
-      text: "Establish a safe word/code with your children so they know when to run to a designated safe place (e.g. a neighbor's house)."
+      text: "Establish a secret word/code with children so they know when to run to a designated safe neighbor's house."
     });
   }
 
   if (choices.sharedHome || choices.planToLeave) {
     checklist.push({
       id: "s_leave1",
-      text: "Pack an emergency 'Go-Bag' containing spare keys, medications, birth certificates, ID copies, and emergency cash. Hide it in a safe place (like at a trusted friend's house or a secure outdoor location)."
+      text: "Pack an emergency Go-Bag with original documents (National ID/NID card, Kabinnama/marriage deed, educational certificates, land records), spare keys, and cash. Hide it with a trusted relative or friend."
     });
     checklist.push({
       id: "s_leave2",
-      text: "Open a separate bank account in your name only, and request paperless statements sent to a safe email or physical address."
+      text: "Keep a secret, separate savings amount in a mobile financial account (e.g. bKash, Rocket, Nagad) registered under a secure SIM card."
     });
   }
 
   if (choices.digitalMonitoring) {
     checklist.push({
       id: "s_dig1",
-      text: "Use a public computer (library) or a borrowed device to search for help, legal resources, or housing."
+      text: "Use a public computer or a borrowed phone from a trusted friend to seek legal advice or look up support centers."
     });
     checklist.push({
       id: "s_dig2",
-      text: "Change login credentials for email, banking, and social accounts on a clean device. Enable two-factor authentication (2FA) pointing to a secret phone number or authenticator app."
+      text: "Change passwords and PINs for emails, social media, and mobile banking (bKash/Nagad). Set up 2-Factor Authentication (2FA) using a secret, secondary SIM card."
     });
     checklist.push({
       id: "s_dig3",
-      text: "Turn off location sharing, GPS services, and Bluetooth on all cellular devices and wearable tech."
+      text: "Disable location sharing, GPS services, and history tracking on all mobile applications."
     });
   }
 
   if (choices.orderOfProtection) {
     checklist.push({
       id: "s_prot1",
-      text: "Keep a copy of your protective order with you at all times. Leave extra copies at your workplace, car, and with a trusted contact."
+      text: "Keep a certified copy of your court Protection Order (under the Domestic Violence Act, 2010) with you at all times. Leave extra copies at your place of employment and with trusted neighbors."
     });
     checklist.push({
       id: "s_prot2",
-      text: "Inform your workplace security and local police station that you hold a protective order against the offender, providing them a photo of the individual if possible."
+      text: "Notify your local Thana and Ward Commissioner's office that you hold a Protection Order against the offender, providing their photo if available."
     });
   }
 
@@ -147,54 +151,54 @@ window.generateSafetyChecklist = function(choices) {
 };
 
 /**
- * Utility to download formatted incident report as a text file.
+ * Utility to download formatted incident report as a General Diary (GD) draft text file.
  * @param {object} report - Report data.
  */
 window.downloadReport = function(report) {
-  const content = `===========================================================
-               CONFIDENTIAL INCIDENT REPORT
-===========================================================
-DOCUMENTED ON: ${new Date().toLocaleString()}
-STATUS: STRICTLY CONFIDENTIAL - SURVIVOR RECORDS
+  const content = `To:
+The Officer-in-Charge (OC)
+${report.incidentLocation || '[Name of Thana / Police Station]'} Police Station,
+${report.incidentLocation ? '' : 'Dhaka, '}Bangladesh.
+
+Subject: Lodging of General Diary (GD) regarding occurrence of ${report.incidentType || 'Harassment'}.
+
+Dear Sir/Madam,
+I, the undersigned, ${report.survivorName || 'Not Provided (Anonymous)'}, safe contact: ${report.contactInfo || 'Not Provided'}, safe to contact: ${report.safeToContact ? 'YES' : 'NO / BY APPOINTMENT'}, wish to state that on ${report.incidentDateTime || '[Date/Time of Incident]'}, the following incident took place in your jurisdiction:
 
 -----------------------------------------------------------
-1. PERSONAL INFORMATION
+INCIDENT DESCRIPTION (GD CHRONOLOGY)
 -----------------------------------------------------------
-Survivor Name: ${report.survivorName || 'Not Provided (Anonymous)'}
-Contact Info:  ${report.contactInfo || 'Not Provided (Anonymous)'}
-Safe to Contact? ${report.safeToContact ? 'YES' : 'NO / USE CAUTION'}
+Violation Category: ${report.incidentType || 'Harassment'}
+Date & Time: ${report.incidentDateTime || 'Not Provided'}
+Specific Location: ${report.incidentLocation || 'Not Provided'}
 
------------------------------------------------------------
-2. INCIDENT DETAILS
------------------------------------------------------------
-Date/Time of Occurrence: ${report.incidentDateTime || 'Not Provided'}
-Location:                 ${report.incidentLocation || 'Not Provided'}
-Type of Incident:         ${report.incidentType || 'Not Specified'}
-
-Description of Event:
+Description:
 ${report.incidentDescription || 'No description provided.'}
 
 -----------------------------------------------------------
-3. EVIDENCE & WITNESS DETAILS
+CORROBORATIVE EVIDENCE & WITNESS DETAILS
 -----------------------------------------------------------
-Witnesses:
+Witnesses present:
 ${report.witnesses || 'None logged.'}
 
-Evidence Logged (Texts, Audio, Physical):
+Digital / Physical Evidence logged (such as Facebook links, chat screenshots, or medical papers):
 ${report.evidenceLog || 'None logged.'}
 
-===========================================================
-END OF RECORD. 
-This document was generated securely via JustiSafe Portal.
-Keep this file in a secure digital folder, or print and 
-store in a trusted, private location.
+-----------------------------------------------------------
+Under the circumstances, I request you to record this matter in the General Diary (GD book) of the police station for security purposes and legal record.
+
+Sincerely,
+${report.survivorName || 'Not Provided (Anonymous)'}
+
+Date: ${new Date().toLocaleDateString()}
+Generated securely via JustiSafe Bangladesh Portal. All calculations kept strictly local.
 ===========================================================`;
 
   const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
-  link.download = `JustiSafe_Report_${report.incidentType.replace(/\s+/g, '_') || 'General'}.txt`;
+  link.download = `JustiSafe_GD_Draft_${report.incidentType.replace(/\s+/g, '_') || 'General'}.txt`;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
